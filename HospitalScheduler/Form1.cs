@@ -25,8 +25,14 @@ namespace HospitalScheduler
 
         private void btnMakeSchedule_Click(object sender, EventArgs e)
         {
-            MakeSchedule ms = new MakeSchedule();
-            ms.Show();
+            ImportFilesDialog ifd = new ImportFilesDialog();
+            ifd.Show();
+        }
+
+        private void btnEditClinics_Click(object sender, EventArgs e)
+        {
+            EditClinics ec = new EditClinics();
+            ec.Show();
         }
     }
 }

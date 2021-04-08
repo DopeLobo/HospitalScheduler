@@ -69,16 +69,17 @@ namespace HospitalScheduler
             this.btnEditClinics.TabIndex = 1;
             this.btnEditClinics.Text = "Edit Clinics";
             this.btnEditClinics.UseVisualStyleBackColor = false;
+            this.btnEditClinics.Click += new System.EventHandler(this.btnEditClinics_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Harrington", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(176, 28);
+            this.label1.Location = new System.Drawing.Point(83, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(506, 76);
+            this.label1.Size = new System.Drawing.Size(682, 76);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Quick Scheduler";
+            this.label1.Text = "CrownPoint Scheduler";
             // 
             // Form1
             // 
