@@ -16,6 +16,8 @@ namespace HospitalScheduler
 {
     public partial class ImportFilesDialog : Form
     {
+        BindingSource csvprovider = new BindingSource();
+        BindingSource csvclinic = new BindingSource();
         public ImportFilesDialog()
         {
             InitializeComponent();
@@ -46,6 +48,7 @@ namespace HospitalScheduler
                         {
                             this.labelProviderStatus.BackColor = Color.LightGreen;
                             this.labelProviderStatus.Text = "Uploaded File";
+                            csvprovider.DataSource = csv.GetRecords<Provider>();
                             if (this.labelClinicStatus.Text == "Uploaded File")
                             {
                                 btnGenSchedule.Visible = true;
@@ -53,6 +56,7 @@ namespace HospitalScheduler
 
                         }
                     }
+                    sr.Close();
                     //providerBindingSource.DataSource = csv.GetRecords<Provider>();  //Commented because we don't have a bindingsource in this Dialog.
                 }
             }
@@ -83,6 +87,7 @@ namespace HospitalScheduler
                         {
                             this.labelClinicStatus.BackColor = Color.LightGreen;
                             this.labelClinicStatus.Text = "Uploaded File";
+                            csvclinic.DataSource = csv.GetRecords<Clinic>();
                             if (this.labelProviderStatus.Text == "Uploaded File")
                             {
                                 btnGenSchedule.Visible = true;
@@ -90,9 +95,17 @@ namespace HospitalScheduler
 
                         }
                     }
+                    sr.Close();
                     //providerBindingSource.DataSource = csv.GetRecords<Provider>();  //Commented because we don't have a bindingsource in this Dialog.
                 }
             }
+        }
+
+        private void btnGenSchedule_Click(object sender, EventArgs e)
+        {
+            MakeSchedule ms = new MakeSchedule(csvprovider, csvclinic);
+            ms.Show();
+            this.Close();
         }
     }
 }

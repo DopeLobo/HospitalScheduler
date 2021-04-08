@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace HospitalScheduler
 {
     public partial class MakeSchedule : Form
     {
-        public MakeSchedule()
+        public MakeSchedule(BindingSource csvprovider, BindingSource csvclinic)
         {
             InitializeComponent();
+            providerBindingSource.DataSource = csvprovider;
+            clinicBindingSource.DataSource = csvclinic;
         }
 
         private void btnRead_Click(object sender, EventArgs e)

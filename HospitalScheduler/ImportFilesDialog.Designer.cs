@@ -85,6 +85,7 @@ namespace HospitalScheduler
             this.btnGenSchedule.Text = "Generate Schedule";
             this.btnGenSchedule.UseVisualStyleBackColor = true;
             this.btnGenSchedule.Visible = false;
+            this.btnGenSchedule.Click += new System.EventHandler(this.btnGenSchedule_Click);
             // 
             // ImportFilesDialog
             // 

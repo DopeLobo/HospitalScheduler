@@ -61,6 +61,7 @@ namespace HospitalScheduler
                     var sr = new StreamReader(new FileStream(ofd.FileName, FileMode.Open));
                     var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
                     providerBindingSource.DataSource = csv.GetRecords<Provider>();
+                    sr.Close();
                 }
             }
         }

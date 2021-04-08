@@ -31,7 +31,8 @@ namespace HospitalScheduler
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clinicBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnRead = new System.Windows.Forms.Button();
+            this.btnWrite = new System.Windows.Forms.Button();
             this.clinicIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clinicNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,8 +43,7 @@ namespace HospitalScheduler
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.licenseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRead = new System.Windows.Forms.Button();
-            this.btnWrite = new System.Windows.Forms.Button();
+            this.clinicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clinicBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -71,9 +71,28 @@ namespace HospitalScheduler
             this.dataGridView1.Size = new System.Drawing.Size(800, 331);
             this.dataGridView1.TabIndex = 0;
             // 
-            // clinicBindingSource
+            // btnRead
             // 
-            this.clinicBindingSource.DataSource = typeof(HospitalScheduler.Clinic);
+            this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRead.Location = new System.Drawing.Point(684, 376);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.TabIndex = 2;
+            this.btnRead.Text = "Read";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // btnWrite
+            // 
+            this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWrite.Location = new System.Drawing.Point(589, 376);
+            this.btnWrite.Name = "btnWrite";
+            this.btnWrite.Size = new System.Drawing.Size(75, 23);
+            this.btnWrite.TabIndex = 3;
+            this.btnWrite.Text = "Write";
+            this.btnWrite.UseVisualStyleBackColor = true;
             // 
             // clinicIDDataGridViewTextBoxColumn
             // 
@@ -135,27 +154,9 @@ namespace HospitalScheduler
             this.scheduleTypeDataGridViewTextBoxColumn.HeaderText = "ScheduleType";
             this.scheduleTypeDataGridViewTextBoxColumn.Name = "scheduleTypeDataGridViewTextBoxColumn";
             // 
-            // btnRead
+            // clinicBindingSource
             // 
-            this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.Location = new System.Drawing.Point(684, 376);
-            this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(75, 23);
-            this.btnRead.TabIndex = 2;
-            this.btnRead.Text = "Read";
-            this.btnRead.UseVisualStyleBackColor = true;
-            // 
-            // btnWrite
-            // 
-            this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite.Location = new System.Drawing.Point(589, 376);
-            this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(75, 23);
-            this.btnWrite.TabIndex = 3;
-            this.btnWrite.Text = "Write";
-            this.btnWrite.UseVisualStyleBackColor = true;
+            this.clinicBindingSource.DataSource = typeof(HospitalScheduler.Clinic);
             // 
             // EditClinics
             // 
