@@ -33,6 +33,7 @@ namespace HospitalScheduler
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnWrite = new System.Windows.Forms.Button();
             this.btnRead = new System.Windows.Forms.Button();
+            this.providerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.providerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.providerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +44,7 @@ namespace HospitalScheduler
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.licenseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +64,8 @@ namespace HospitalScheduler
             this.typeDataGridViewTextBoxColumn,
             this.specialtyDataGridViewTextBoxColumn,
             this.licenseDataGridViewTextBoxColumn,
-            this.scheduleTypeDataGridViewTextBoxColumn});
+            this.scheduleTypeDataGridViewTextBoxColumn,
+            this.Delete});
             this.dataGridView1.DataSource = this.providerBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -97,6 +99,10 @@ namespace HospitalScheduler
             this.btnRead.Text = "Import";
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
+            // 
+            // providerBindingSource
+            // 
+            this.providerBindingSource.DataSource = typeof(HospitalScheduler.Provider);
             // 
             // providerIDDataGridViewTextBoxColumn
             // 
@@ -158,9 +164,12 @@ namespace HospitalScheduler
             this.scheduleTypeDataGridViewTextBoxColumn.HeaderText = "ScheduleType";
             this.scheduleTypeDataGridViewTextBoxColumn.Name = "scheduleTypeDataGridViewTextBoxColumn";
             // 
-            // providerBindingSource
+            // Delete
             // 
-            this.providerBindingSource.DataSource = typeof(HospitalScheduler.Provider);
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
             // 
             // EditProviders
             // 
@@ -184,6 +193,7 @@ namespace HospitalScheduler
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnWrite;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.BindingSource providerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
@@ -194,6 +204,6 @@ namespace HospitalScheduler
         private System.Windows.Forms.DataGridViewTextBoxColumn specialtyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn licenseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scheduleTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource providerBindingSource;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }

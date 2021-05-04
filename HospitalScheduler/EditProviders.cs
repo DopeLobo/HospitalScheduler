@@ -109,7 +109,13 @@ namespace HospitalScheduler
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewComboBoxCell l_objGridDropbox = new DataGridViewComboBoxCell();
-            if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("preferences"))
+            //Check deleted rows
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    providerBindingSource.RemoveCurrent();
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("preferences"))
             {
                 dataGridView1[e.ColumnIndex, e.RowIndex] = PreferencesList();
             }
