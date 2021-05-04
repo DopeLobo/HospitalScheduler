@@ -70,6 +70,9 @@ namespace HospitalScheduler
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(800, 331);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             // 
             // btnWrite
             // 
@@ -77,9 +80,9 @@ namespace HospitalScheduler
             this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWrite.Location = new System.Drawing.Point(589, 363);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(75, 23);
+            this.btnWrite.Size = new System.Drawing.Size(75, 26);
             this.btnWrite.TabIndex = 1;
-            this.btnWrite.Text = "Write";
+            this.btnWrite.Text = "Save";
             this.btnWrite.UseVisualStyleBackColor = true;
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
             // 
@@ -89,9 +92,9 @@ namespace HospitalScheduler
             this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRead.Location = new System.Drawing.Point(684, 363);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.Size = new System.Drawing.Size(75, 26);
             this.btnRead.TabIndex = 1;
-            this.btnRead.Text = "Read";
+            this.btnRead.Text = "Import";
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 

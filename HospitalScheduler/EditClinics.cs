@@ -20,7 +20,32 @@ namespace HospitalScheduler
         {
             InitializeComponent();
         }
+        private void btnWrite_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        PrepareHeaderForMatch = args => args.Header.ToLower(),
+                    };
+                    using (var sw = new StreamWriter(sfd.FileName))
 
+                    using (var writer = new CsvWriter(sw, CultureInfo.InvariantCulture))
+                    {
+                        writer.WriteHeader(typeof(Clinic));
+                        writer.NextRecord();
+                        foreach (Clinic s in clinicBindingSource.DataSource as List<Clinic>)
+                        {
+                            writer.WriteRecord(s);
+                            writer.NextRecord();
+                        }
+                    }
+                    MessageBox.Show("Your data has been successfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
         private void btnRead_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "CSV|*.csv", ValidateNames = true })
@@ -33,10 +58,17 @@ namespace HospitalScheduler
                     };
                     var sr = new StreamReader(new FileStream(ofd.FileName, FileMode.Open));
                     var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
-                    clinicBindingSource.DataSource = csv.GetRecords<Clinic>();
+                    clinicBindingSource.DataSource = csv.GetRecords<Clinic>().ToList();
                     sr.Close();
                 }
             }
         }
+
+        private void EditClinics_Load(object sender, EventArgs e)
+        {
+            clinicBindingSource.AllowNew = true;
+            clinicBindingSource.DataSource = new List<Clinic>();
+        }
+
     }
 }
