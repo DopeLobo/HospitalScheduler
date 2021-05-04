@@ -13,8 +13,8 @@ namespace HospitalScheduler
         public string HoursOfOperation { get; set; }
         public string Phone { get; set; }
         public string Mandatory { get; set; }
-        public string MinNumStaff { get; set; }
-        public string Type { get; set; }
+        public string Adults { get; set; }
+        public string Pediatrics { get; set; }
         public string Specialty { get; set; }
         public string License { get; set; }
     }

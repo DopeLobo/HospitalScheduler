@@ -82,12 +82,35 @@ namespace HospitalScheduler
         }
         private DataGridViewComboBoxCell PreferencesList()
         {
-            DataGridViewComboBoxCell l_dtPaidwith = new DataGridViewComboBoxCell();
-            string[] preferencetypes = { "Full-Time", "Part-Time", "dropout" };
-            l_dtPaidwith.Items.AddRange(preferencetypes);
+            DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
+            string[] itemlist = { "Weekend", "Days" };
+            combolist.Items.AddRange(itemlist);
 
+            return combolist;
+        }
+        private DataGridViewComboBoxCell Full_Part_Time()
+        {
+            DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
+            string[] itemlist = { "Full-Time", "Part-Time" };
+            combolist.Items.AddRange(itemlist);
 
-            return l_dtPaidwith;
+            return combolist;
+        }
+        private DataGridViewComboBoxCell SpecialtyList()
+        {
+            DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
+            string[] itemlist = { "Adult", "Peadiatric", "Family" };
+            combolist.Items.AddRange(itemlist);
+
+            return combolist;
+        }
+        private DataGridViewComboBoxCell ScheduleTypeList()
+        {
+            DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
+            string[] itemlist = { "Fixed", "Flexible" };
+            combolist.Items.AddRange(itemlist);
+
+            return combolist;
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -103,6 +126,19 @@ namespace HospitalScheduler
                 {
                     dataGridView1[i, dataGridView1.RowCount - 1] = PreferencesList();
                 }
+                if (dataGridView1.Columns[i].Name.Contains("type"))
+                {
+                    dataGridView1[i, dataGridView1.RowCount - 1] = Full_Part_Time();
+                }
+                if (dataGridView1.Columns[i].Name.Contains("specialty"))
+                {
+                    dataGridView1[i, dataGridView1.RowCount - 1] = SpecialtyList();
+                }
+                if (dataGridView1.Columns[i].Name.Contains("schedule"))
+                {
+                    dataGridView1[i, dataGridView1.RowCount - 1] = ScheduleTypeList();
+                }
+
             }
         }
 
@@ -118,6 +154,18 @@ namespace HospitalScheduler
             else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("preferences"))
             {
                 dataGridView1[e.ColumnIndex, e.RowIndex] = PreferencesList();
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("type"))
+            {
+                dataGridView1[e.ColumnIndex, e.RowIndex] = Full_Part_Time();
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("specialty"))
+            {
+                dataGridView1[e.ColumnIndex, e.RowIndex] = SpecialtyList();
+            }
+            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("schedule"))
+            {
+                dataGridView1[e.ColumnIndex, e.RowIndex] = ScheduleTypeList();
             }
         }
     }

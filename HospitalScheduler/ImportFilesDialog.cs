@@ -103,7 +103,7 @@ namespace HospitalScheduler
 
         private void btnGenSchedule_Click(object sender, EventArgs e)
         {
-            MakeSchedule ms = new MakeSchedule(csvprovider, csvclinic);
+            MakeSchedule ms = new MakeSchedule(csvprovider, csvclinic, startdateTimePicker.Value, enddateTimePicker.Value);
             ms.Show();
             this.Close();
         }
