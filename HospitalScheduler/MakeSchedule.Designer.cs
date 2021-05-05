@@ -33,13 +33,11 @@ namespace HospitalScheduler
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRead = new System.Windows.Forms.Button();
             this.btnWrite = new System.Windows.Forms.Button();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shiftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.providerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.providerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clinicBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shiftDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.providerBindingSource)).BeginInit();
@@ -53,9 +51,7 @@ namespace HospitalScheduler
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dateDataGridViewTextBoxColumn,
-            this.shiftDataGridViewTextBoxColumn,
-            this.providerDataGridViewTextBoxColumn,
-            this.locationDataGridViewTextBoxColumn});
+            this.shiftDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.scheduleBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -67,11 +63,11 @@ namespace HospitalScheduler
             // 
             this.btnRead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRead.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.Location = new System.Drawing.Point(713, 402);
+            this.btnRead.Location = new System.Drawing.Point(713, 395);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.Size = new System.Drawing.Size(75, 28);
             this.btnRead.TabIndex = 2;
-            this.btnRead.Text = "Read";
+            this.btnRead.Text = "Import";
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
@@ -79,37 +75,13 @@ namespace HospitalScheduler
             // 
             this.btnWrite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnWrite.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWrite.Location = new System.Drawing.Point(618, 402);
+            this.btnWrite.Location = new System.Drawing.Point(618, 395);
             this.btnWrite.Name = "btnWrite";
-            this.btnWrite.Size = new System.Drawing.Size(75, 23);
+            this.btnWrite.Size = new System.Drawing.Size(75, 28);
             this.btnWrite.TabIndex = 3;
-            this.btnWrite.Text = "Write";
+            this.btnWrite.Text = "Save";
             this.btnWrite.UseVisualStyleBackColor = true;
             this.btnWrite.Click += new System.EventHandler(this.btnWrite_Click);
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            // 
-            // shiftDataGridViewTextBoxColumn
-            // 
-            this.shiftDataGridViewTextBoxColumn.DataPropertyName = "Shift";
-            this.shiftDataGridViewTextBoxColumn.HeaderText = "Shift";
-            this.shiftDataGridViewTextBoxColumn.Name = "shiftDataGridViewTextBoxColumn";
-            // 
-            // providerDataGridViewTextBoxColumn
-            // 
-            this.providerDataGridViewTextBoxColumn.DataPropertyName = "Provider";
-            this.providerDataGridViewTextBoxColumn.HeaderText = "Provider";
-            this.providerDataGridViewTextBoxColumn.Name = "providerDataGridViewTextBoxColumn";
-            // 
-            // locationDataGridViewTextBoxColumn
-            // 
-            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
-            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
             // 
             // scheduleBindingSource
             // 
@@ -122,6 +94,22 @@ namespace HospitalScheduler
             // clinicBindingSource
             // 
             this.clinicBindingSource.DataSource = typeof(HospitalScheduler.Clinic);
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // shiftDataGridViewTextBoxColumn
+            // 
+            this.shiftDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.shiftDataGridViewTextBoxColumn.DataPropertyName = "Shift";
+            this.shiftDataGridViewTextBoxColumn.HeaderText = "Shift";
+            this.shiftDataGridViewTextBoxColumn.Name = "shiftDataGridViewTextBoxColumn";
+            this.shiftDataGridViewTextBoxColumn.Width = 53;
             // 
             // MakeSchedule
             // 
@@ -149,10 +137,8 @@ namespace HospitalScheduler
         private System.Windows.Forms.Button btnWrite;
         private System.Windows.Forms.BindingSource providerBindingSource;
         private System.Windows.Forms.BindingSource clinicBindingSource;
+        private System.Windows.Forms.BindingSource scheduleBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn shiftDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn providerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource scheduleBindingSource;
     }
 }
