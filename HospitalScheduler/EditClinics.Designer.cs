@@ -36,13 +36,8 @@ namespace HospitalScheduler
             this.clinicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clinicIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clinicNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hoursOfOperationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mandatoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adultsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pediatricsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clinicBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -79,13 +74,8 @@ namespace HospitalScheduler
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clinicIDDataGridViewTextBoxColumn,
             this.clinicNameDataGridViewTextBoxColumn,
-            this.hoursOfOperationDataGridViewTextBoxColumn,
-            this.phoneDataGridViewTextBoxColumn,
-            this.mandatoryDataGridViewTextBoxColumn,
             this.adultsDataGridViewTextBoxColumn,
-            this.pediatricsDataGridViewTextBoxColumn,
-            this.specialtyDataGridViewTextBoxColumn,
-            this.licenseDataGridViewTextBoxColumn});
+            this.pediatricsDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.clinicBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -109,24 +99,6 @@ namespace HospitalScheduler
             this.clinicNameDataGridViewTextBoxColumn.HeaderText = "ClinicName";
             this.clinicNameDataGridViewTextBoxColumn.Name = "clinicNameDataGridViewTextBoxColumn";
             // 
-            // hoursOfOperationDataGridViewTextBoxColumn
-            // 
-            this.hoursOfOperationDataGridViewTextBoxColumn.DataPropertyName = "HoursOfOperation";
-            this.hoursOfOperationDataGridViewTextBoxColumn.HeaderText = "HoursOfOperation";
-            this.hoursOfOperationDataGridViewTextBoxColumn.Name = "hoursOfOperationDataGridViewTextBoxColumn";
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // mandatoryDataGridViewTextBoxColumn
-            // 
-            this.mandatoryDataGridViewTextBoxColumn.DataPropertyName = "Mandatory";
-            this.mandatoryDataGridViewTextBoxColumn.HeaderText = "Mandatory";
-            this.mandatoryDataGridViewTextBoxColumn.Name = "mandatoryDataGridViewTextBoxColumn";
-            // 
             // adultsDataGridViewTextBoxColumn
             // 
             this.adultsDataGridViewTextBoxColumn.DataPropertyName = "Adults";
@@ -138,18 +110,6 @@ namespace HospitalScheduler
             this.pediatricsDataGridViewTextBoxColumn.DataPropertyName = "Pediatrics";
             this.pediatricsDataGridViewTextBoxColumn.HeaderText = "Pediatrics";
             this.pediatricsDataGridViewTextBoxColumn.Name = "pediatricsDataGridViewTextBoxColumn";
-            // 
-            // specialtyDataGridViewTextBoxColumn
-            // 
-            this.specialtyDataGridViewTextBoxColumn.DataPropertyName = "Specialty";
-            this.specialtyDataGridViewTextBoxColumn.HeaderText = "Specialty";
-            this.specialtyDataGridViewTextBoxColumn.Name = "specialtyDataGridViewTextBoxColumn";
-            // 
-            // licenseDataGridViewTextBoxColumn
-            // 
-            this.licenseDataGridViewTextBoxColumn.DataPropertyName = "License";
-            this.licenseDataGridViewTextBoxColumn.HeaderText = "License";
-            this.licenseDataGridViewTextBoxColumn.Name = "licenseDataGridViewTextBoxColumn";
             // 
             // EditClinics
             // 
@@ -178,13 +138,8 @@ namespace HospitalScheduler
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn clinicIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn clinicNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hoursOfOperationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mandatoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adultsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pediatricsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specialtyDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenseDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource clinicBindingSource;
     }
 }

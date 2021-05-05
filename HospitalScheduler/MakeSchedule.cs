@@ -115,7 +115,6 @@ namespace HospitalScheduler
                 new_column.HeaderText = s.Specialty +"/"+ s.ProviderName;
                 dataGridView1.Columns.Add(new_column.HeaderText, new_column.HeaderText);
             }
-            int test = 0;
 
         }
     }
