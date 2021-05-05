@@ -8,6 +8,7 @@ namespace HospitalScheduler
 {
     public class Schedule
     {
+        public DateTime dt_value { get; set; }
         public string Date { get; set; }
         public string Shift { get; set; }
         public string Provider { get; set; }

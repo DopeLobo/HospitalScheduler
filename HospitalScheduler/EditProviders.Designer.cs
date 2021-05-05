@@ -44,6 +44,7 @@ namespace HospitalScheduler
             this.satDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.sunDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.approvedLeaveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preferredLocationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specialtyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +69,7 @@ namespace HospitalScheduler
             this.satDataGridViewTextBoxColumn,
             this.sunDataGridViewTextBoxColumn,
             this.approvedLeaveDataGridViewTextBoxColumn,
+            this.preferredLocationDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.specialtyDataGridViewTextBoxColumn,
             this.scheduleTypeDataGridViewTextBoxColumn,
@@ -124,57 +126,57 @@ namespace HospitalScheduler
             // 
             // monDataGridViewTextBoxColumn
             // 
-            this.monDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.monDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.monDataGridViewTextBoxColumn.DataPropertyName = "Mon";
-            this.monDataGridViewTextBoxColumn.HeaderText = "M";
+            this.monDataGridViewTextBoxColumn.HeaderText = "Mon";
             this.monDataGridViewTextBoxColumn.Name = "monDataGridViewTextBoxColumn";
             this.monDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.monDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.monDataGridViewTextBoxColumn.Width = 41;
+            this.monDataGridViewTextBoxColumn.Width = 53;
             // 
             // tueDataGridViewTextBoxColumn
             // 
-            this.tueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.tueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.tueDataGridViewTextBoxColumn.DataPropertyName = "Tue";
-            this.tueDataGridViewTextBoxColumn.HeaderText = "T";
+            this.tueDataGridViewTextBoxColumn.HeaderText = "Tue";
             this.tueDataGridViewTextBoxColumn.Name = "tueDataGridViewTextBoxColumn";
             this.tueDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tueDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.tueDataGridViewTextBoxColumn.Width = 39;
+            this.tueDataGridViewTextBoxColumn.Width = 51;
             // 
             // wedDataGridViewTextBoxColumn
             // 
-            this.wedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.wedDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.wedDataGridViewTextBoxColumn.DataPropertyName = "Wed";
-            this.wedDataGridViewTextBoxColumn.HeaderText = "W";
+            this.wedDataGridViewTextBoxColumn.HeaderText = "Wed";
             this.wedDataGridViewTextBoxColumn.Name = "wedDataGridViewTextBoxColumn";
             this.wedDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.wedDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.wedDataGridViewTextBoxColumn.Width = 43;
+            this.wedDataGridViewTextBoxColumn.Width = 55;
             // 
             // thuDataGridViewTextBoxColumn
             // 
-            this.thuDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.thuDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.thuDataGridViewTextBoxColumn.DataPropertyName = "Thu";
-            this.thuDataGridViewTextBoxColumn.HeaderText = "Th";
+            this.thuDataGridViewTextBoxColumn.HeaderText = "Thu";
             this.thuDataGridViewTextBoxColumn.Name = "thuDataGridViewTextBoxColumn";
             this.thuDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.thuDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.thuDataGridViewTextBoxColumn.Width = 45;
+            this.thuDataGridViewTextBoxColumn.Width = 51;
             // 
             // friDataGridViewTextBoxColumn
             // 
-            this.friDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.friDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.friDataGridViewTextBoxColumn.DataPropertyName = "Fri";
-            this.friDataGridViewTextBoxColumn.HeaderText = "F";
+            this.friDataGridViewTextBoxColumn.HeaderText = "Fri";
             this.friDataGridViewTextBoxColumn.Name = "friDataGridViewTextBoxColumn";
             this.friDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.friDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.friDataGridViewTextBoxColumn.Width = 38;
+            this.friDataGridViewTextBoxColumn.Width = 43;
             // 
             // satDataGridViewTextBoxColumn
             // 
-            this.satDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.satDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.satDataGridViewTextBoxColumn.DataPropertyName = "Sat";
             this.satDataGridViewTextBoxColumn.HeaderText = "Sat";
             this.satDataGridViewTextBoxColumn.Name = "satDataGridViewTextBoxColumn";
@@ -184,7 +186,7 @@ namespace HospitalScheduler
             // 
             // sunDataGridViewTextBoxColumn
             // 
-            this.sunDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.sunDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.sunDataGridViewTextBoxColumn.DataPropertyName = "Sun";
             this.sunDataGridViewTextBoxColumn.HeaderText = "Sun";
             this.sunDataGridViewTextBoxColumn.Name = "sunDataGridViewTextBoxColumn";
@@ -197,6 +199,12 @@ namespace HospitalScheduler
             this.approvedLeaveDataGridViewTextBoxColumn.DataPropertyName = "ApprovedLeave";
             this.approvedLeaveDataGridViewTextBoxColumn.HeaderText = "ApprovedLeave";
             this.approvedLeaveDataGridViewTextBoxColumn.Name = "approvedLeaveDataGridViewTextBoxColumn";
+            // 
+            // preferredLocationDataGridViewTextBoxColumn
+            // 
+            this.preferredLocationDataGridViewTextBoxColumn.DataPropertyName = "PreferredLocation";
+            this.preferredLocationDataGridViewTextBoxColumn.HeaderText = "PreferredLocation";
+            this.preferredLocationDataGridViewTextBoxColumn.Name = "preferredLocationDataGridViewTextBoxColumn";
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -246,7 +254,6 @@ namespace HospitalScheduler
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnWrite;
         private System.Windows.Forms.Button btnRead;
-        private System.Windows.Forms.BindingSource providerBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn providerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn monDataGridViewTextBoxColumn;
@@ -257,9 +264,11 @@ namespace HospitalScheduler
         private System.Windows.Forms.DataGridViewCheckBoxColumn satDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn sunDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn approvedLeaveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preferredLocationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn specialtyDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scheduleTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.BindingSource providerBindingSource;
     }
 }

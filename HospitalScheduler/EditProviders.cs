@@ -96,6 +96,14 @@ namespace HospitalScheduler
 
             return combolist;
         }
+        private DataGridViewComboBoxCell PreferredLocation()
+        {
+            DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
+            string[] itemlist = { "CHCF", "THS", "PPHC"};
+            combolist.Items.AddRange(itemlist);
+
+            return combolist;
+        }
         private DataGridViewComboBoxCell SpecialtyList()
         {
             DataGridViewComboBoxCell combolist = new DataGridViewComboBoxCell();
@@ -122,9 +130,9 @@ namespace HospitalScheduler
         {
             for (int i = 0; i < dataGridView1.ColumnCount; i++)
             {
-                if (dataGridView1.Columns[i].Name.Contains("preferences"))
+                if (dataGridView1.Columns[i].Name.Contains("preferred"))
                 {
-                    dataGridView1[i, dataGridView1.RowCount - 1] = PreferencesList();
+                    dataGridView1[i, dataGridView1.RowCount - 1] = PreferredLocation();
                 }
                 if (dataGridView1.Columns[i].Name.Contains("type"))
                 {
@@ -151,9 +159,9 @@ namespace HospitalScheduler
                 if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     providerBindingSource.RemoveCurrent();
             }
-            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("preferences"))
+            else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("preferred"))
             {
-                dataGridView1[e.ColumnIndex, e.RowIndex] = PreferencesList();
+                dataGridView1[e.ColumnIndex, e.RowIndex] = PreferredLocation();
             }
             else if (dataGridView1.Columns[e.ColumnIndex].Name.Contains("type"))
             {

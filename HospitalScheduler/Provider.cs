@@ -18,6 +18,7 @@ namespace HospitalScheduler
         public string Sat { get; set; }
         public string Sun { get; set; }
         public string ApprovedLeave { get; set; }
+        public string PreferredLocation { get; set; }
         public string Type { get; set; }
         public string Specialty { get; set; }
         public string ScheduleType { get; set; }

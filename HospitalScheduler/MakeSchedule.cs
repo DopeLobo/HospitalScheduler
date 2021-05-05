@@ -85,6 +85,7 @@ namespace HospitalScheduler
                 for (int i = 0; i < 2; i++)
                 {
                     Schedule sc = new Schedule();
+                    sc.dt_value = dt;
                     sc.Date = dt.ToShortDateString();
                     if(i == 0)
                     {
@@ -100,14 +101,23 @@ namespace HospitalScheduler
                         dataGridView1[0, count].Style.Alignment = DataGridViewContentAlignment.MiddleRight;
                         //dataGridView1[0, count].Value = dt.DayOfWeek.ToString();
                     }
+                    if((int)dt.DayOfWeek == 6 || (int)dt.DayOfWeek == 0)
+                    {
+                        dataGridView1.Rows[count].DefaultCellStyle.BackColor = Color.Gray;
+                    }
+                    else
+                    {
+                        schedule_output.Add(sc);
+                    }
                     count++;
-                    schedule_output.Add(sc);
+
                 }
               
             }
             //scheduleBindingSource.DataSource = schedule_output;
 
             List<Provider> providers_info = new List<Provider>();
+            List<Clinic> clinic_info = new List<Clinic>();
             foreach (Provider s in provider_copy.List)
             {
                 providers_info.Add(s);
@@ -115,7 +125,153 @@ namespace HospitalScheduler
                 new_column.HeaderText = s.Specialty +"/"+ s.ProviderName;
                 dataGridView1.Columns.Add(new_column.HeaderText, new_column.HeaderText);
             }
+            foreach (Clinic c in clinic_copy.List)
+            {
+                clinic_info.Add(c);
+            }
+            make_schedule(schedule_output, providers_info, clinic_info, dateTimes);
+        }
 
+        private List<string> getDaysOfProvider(Provider p)
+        {
+            List<string> listOfDays = new List<string>();
+            if(string.Equals(p.Mon, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Monday");
+            }
+            if (string.Equals(p.Tue, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Tuesday");
+            }
+            if (string.Equals(p.Wed, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Wednesday");
+            }
+            if (string.Equals(p.Thu, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Thursday");
+            }
+            if (string.Equals(p.Fri, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Friday");
+            }
+            if (string.Equals(p.Sat, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Saturday");
+            }
+            if (string.Equals(p.Sun, "TRUE", StringComparison.CurrentCultureIgnoreCase))
+            {
+                listOfDays.Add("Sunday");
+            }
+            return listOfDays;
+        }
+        private void make_schedule(List<Schedule> schedule, List<Provider> providers, List<Clinic> clinics, DateTime[] dateTimes)
+        {
+            int row_count = 0;
+            List<Provider> fixed_full = new List<Provider>();
+            List<Provider> fixed_part = new List<Provider>();
+            List<Provider> flexible_full = new List<Provider>();
+            List<Provider> flexible_part = new List<Provider>();
+            List<ClinicProgress> clinicProgresses = new List<ClinicProgress>();
+            foreach (Clinic c in clinics)
+            {
+                ClinicProgress cp = new ClinicProgress();
+                cp.clinic = c;
+                cp.minAdult = 1;
+                cp.minPed = 1;
+                cp.AssignedAdult = 0;
+                cp.AssignedPed = 0;
+                clinicProgresses.Add(cp);
+            }
+            foreach (Provider p in providers)
+            {
+                if (p.ScheduleType == "Fixed" && p.Type.Contains("Full"))
+                {
+                    fixed_full.Add(p);
+                }
+                else if (p.ScheduleType == "Fixed" && p.Type.Contains("Part"))
+                {
+                    fixed_part.Add(p);
+                }
+                else if (p.ScheduleType == "Flexible" && p.Type.Contains("Full"))
+                {
+                    flexible_full.Add(p);
+                }
+                else if (p.ScheduleType == "Flexible" && p.Type.Contains("Part"))
+                {
+                    flexible_part.Add(p);
+                }
+            }
+            foreach (DateTime dt in dateTimes)
+            {
+                int count = 0;
+                foreach(Provider p in providers)
+                {
+                    List<string> listOfDays = getDaysOfProvider(p);
+                    if (((int)dt.DayOfWeek == 6 || (int)dt.DayOfWeek == 0) || (p.ScheduleType == "Fixed" && !listOfDays.Contains(dt.DayOfWeek.ToString())))
+                    {
+                        dataGridView1[count+2, row_count].Value = "SDO";
+                        dataGridView1[count + 2, row_count+1].Value = "SDO";
+                    }
+                    count++;
+                }
+                row_count = row_count+2;
+            }
+            row_count = 0;
+            List<Provider> all_providers = fixed_full.Concat(fixed_part).Concat(flexible_part).Concat(flexible_full).ToList();
+            foreach(DateTime dt in dateTimes)
+            {
+                foreach(ClinicProgress cp in clinicProgresses)
+                {
+                    foreach (Provider p in all_providers)
+                    {
+                        if ((dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count].Value) == "SDO" ||
+                            (dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count].Value) != null)
+                        {
+                            continue;
+                        }
+                        if (cp.AssignedAdult >= cp.minAdult && cp.AssignedPed >= cp.minPed)
+                        {
+                            continue;
+                        }
+                        if (p.Specialty == "Adult")
+                        {
+                            if ( cp.AssignedAdult <= cp.minAdult || (p.PreferredLocation == cp.clinic.ClinicID && cp.AssignedAdult < cp.clinic.Adults))
+                            {
+                                cp.AssignedAdult++;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count].Value = cp.clinic.ClinicID;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count + 1].Value = cp.clinic.ClinicID;
+
+                            }
+                        }
+                        else if (p.Specialty == "Peadiatric")
+                        {
+                            if ( cp.AssignedPed <= cp.minPed || (p.PreferredLocation == cp.clinic.ClinicID && cp.AssignedPed < cp.clinic.Pediatrics))
+                            {
+                                cp.AssignedPed++;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count].Value = cp.clinic.ClinicID;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count + 1].Value = cp.clinic.ClinicID;
+
+                            }
+                        }
+                        else
+                        {
+                            if ((cp.AssignedPed <= cp.minPed || cp.AssignedAdult <= cp.minAdult) || (p.PreferredLocation == cp.clinic.ClinicID && (cp.AssignedPed < cp.clinic.Pediatrics || cp.AssignedAdult < cp.clinic.Adults)))
+                            {
+                                cp.AssignedAdult++;
+                                cp.AssignedPed++;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count].Value = cp.clinic.ClinicID;
+                                dataGridView1[dataGridView1.Columns[p.Specialty + "/" + p.ProviderName].Index, row_count + 1].Value = cp.clinic.ClinicID;
+
+                            }
+                        }
+
+                    }
+                    cp.AssignedAdult = 0;
+                    cp.AssignedPed = 0;
+                }
+                row_count = row_count + 2;
+            }
         }
     }
 }

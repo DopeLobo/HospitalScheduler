@@ -10,8 +10,8 @@ namespace HospitalScheduler
     {
         public string ClinicID { get; set; }
         public string ClinicName { get; set; }
-        public string Adults { get; set; }
-        public string Pediatrics { get; set; }
+        public int Adults { get; set; }
+        public int Pediatrics { get; set; }
 
     }
 }
